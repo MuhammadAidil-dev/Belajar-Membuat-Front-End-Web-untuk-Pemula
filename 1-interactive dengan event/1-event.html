@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event World</title>
+  
+  <style>
+  .contents {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    padding: 15px;
+  }
+
+  #generateButton {
+    margin-top: 5px;
+    margin-bottom: 15px;;
+  }
+</style>
+</head>
+<body>
+  <div class="contents" hidden>
+    <button id="incrementButton">Tekan Aku :)</button>
+    <h3>Kamu sudah menekan tombol di atas sebanyak <span id="count">0</span></h3>
+  </div>
+
+  <script>
+    // fungsi untuk menghapus atribut hidden yang ada pada div contents
+    function welcome(){
+      alert("sim salabim munculah elemen-elemen HTML");
+      const contents = document.querySelector('.contents');
+      contents.removeAttribute("hidden");
+    }
+
+    // fungsi untuk handle menambahkan berapa kali user menklik button
+    function increment(){
+      const count = document.getElementById('count');
+      count.innerText++;
+
+      if(count.innerText == 7){
+        // membuat elemen hidden message
+        const hiddenMessage = document.createElement('h4');
+        hiddenMessage.innerText = "Selamat anda menemukan hadiah tersembunyi..."
+
+        // membuat image
+        const img = document.createElement('img');
+        img.setAttribute(
+          'src',
+          'https://raw.githubusercontent.com/dicodingacademy/a315-web-pemula-labs/shared-files/catto.jpg',
+        );
+
+        // menambahkan hiddenMessage dan img ke elemen kontent
+        const contents = document.querySelector('.contents');
+        contents.appendChild(hiddenMessage).appendChild(img);
+      }
+    }
+
+    // event handler onload
+    // document.body.onload = welcome;
+
+    // event handler button onclick
+    // document.getElementById('incrementButton').onclick = increment;
+
+    // menambahkan event handler menggunakan addEventListner
+    // ---> element.addEventListener(event, callback) <---;
+    window.addEventListener('load', welcome);
+    document.getElementById('incrementButton').addEventListener('click', increment);
+  </script>
+</body>
+</html>

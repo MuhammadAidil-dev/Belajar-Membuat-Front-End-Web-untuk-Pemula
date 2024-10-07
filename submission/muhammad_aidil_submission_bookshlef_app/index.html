@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bookshelf App</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <!-- my fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1>Bookshelf App</h1>
+  </header>
+  <main>
+    <div class="wrapper">
+      <!-- add book -->
+      <section id="bookContainer">
+        <h2>Tambah Buku Baru</h2>
+        <form id="bookForm" data-testid="bookForm">
+          <div class="inputWrapper">
+            <label for="bookFormTitle">Judul</label>
+            <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" autocomplete="off" />
+          </div>
+          <div class="inputWrapper">
+            <label for="bookFormAuthor">Penulis</label>
+            <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" autocomplete="off" />
+          </div>
+          <div class="inputWrapper">
+            <label for="bookFormYear">Tahun</label>
+            <input id="bookFormYear" type="number" required data-testid="bookFormYearInput" autocomplete="off" />
+          </div>
+          <div>
+            <label for="bookFormIsComplete">Selesai dibaca</label>
+            <input
+            id="bookFormIsComplete"
+            type="checkbox"
+            data-testid="bookFormIsCompleteCheckbox"
+            />
+          </div>
+          <button id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton">
+            Masukkan Buku ke rak <span>Belum selesai dibaca</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- search book -->
+      <section id="searchBookContainer">
+        <h2>Cari Buku</h2>
+        <form id="searchBook" data-testid="searchBookForm">
+          <label for="searchBookTitle">Judul</label>
+          <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" autocomplete="off" />
+          <button id="searchSubmit" type="submit" data-testid="searchBookFormSubmitButton">
+            Cari
+          </button>
+        </form>
+      </section>
+    </div>
+
+    <div class="wrapper">
+      <!-- incompletedBookList -->
+      <section id="incompleteBookListContainer">
+        <h2>Belum selesai dibaca</h2>
+        <div id="incompleteBookList" data-testid="incompleteBookList">
+        </div>
+      </section>
+
+      <!-- completedBookList -->
+      <section id="completedBookListContainer">
+        <h2>Selesai dibaca</h2>
+        <div id="completeBookList" data-testid="completeBookList">
+        </div>
+      </section>
+    </div>
+
+    <!-- modal box edit book -->
+    <div id="modalBox" class="modalBox">
+      <section id="modalBoxContainer">
+        <h2>Edit Buku </h2>
+        <form id="editBookForm">
+          <div class="inputWrapper">
+            <label for="inputTitle">Judul</label>
+            <input id="inputTitle" type="text" required autocomplete="off" />
+          </div>
+          <div class="inputWrapper">
+            <label for="inputAuthor">Penulis</label>
+            <input id="inputAuthor" type="text" required autocomplete="off" />
+          </div>
+          <div class="inputWrapper">
+            <label for="inputYear">Tahun</label>
+            <input id="inputYear" type="number" required autocomplete="off" />
+          </div>
+          <div>
+            <label for="inputIsComplete">Selesai dibaca</label>
+            <input
+            id="inputIsComplete"
+            type="checkbox"
+            />
+          </div>
+          <div>
+            <button id="editButtonSubmit" type="submit">
+              Edit
+            </button>
+            <button id="cancleButton" type="button">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

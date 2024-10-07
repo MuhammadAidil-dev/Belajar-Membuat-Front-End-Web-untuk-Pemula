@@ -1,0 +1,319 @@
+:root{
+	--primary: #14b8a6;
+	--dark: #334155;
+	--hover: #0f766e;
+	--box-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05); 
+	--box-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); 
+	--text-xs: 0.75rem;
+	--text-sm: 0.875rem;
+	--text-lg: 1.125rem;
+}
+
+*,
+*::after,
+*::before{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+	padding: .5rem 1rem;
+	background-color: white;
+	color: var(--dark);
+}
+
+/*header*/
+header.header{
+	position: fixed;
+	top: 0;
+	inset-inline: 0;
+	background-color: white;
+	padding: 1rem 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: var(--box-shadow-md);
+	z-index: 999;
+}
+header h1{
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--primary);
+}
+
+/*main*/
+main{
+	display: flex;
+	flex-flow: column nowrap;
+	margin-top: 5rem;
+	width: 100%;
+}
+main .wrapper{
+	flex: 1;
+	display: flex;
+	align-items: center;
+	flex-flow: column nowrap;
+	gap: 1rem;
+}
+main #bookContainer,
+main #searchBookContainer,
+main #incompleteBookListContainer,
+main #completedBookListContainer{
+	width: 100%;
+	padding: 1rem;
+	border-radius: 10px;
+	box-shadow: var(--box-shadow-md);
+}
+main #bookContainer h2{
+	font-size: var(--text-lg);
+	font-weight: 600;
+	text-align: center;
+	color: var(--primary);	
+}
+main #bookContainer #bookForm{
+	display: flex;
+	flex-flow: column nowrap;
+	gap: .5rem;
+}
+main #bookContainer #bookForm div.inputWrapper{
+	display: flex;
+	flex-flow: column nowrap;
+	gap: .3rem;
+}
+main #bookContainer #bookForm div label{
+	font-size: var(--text-sm);
+	font-weight: 600;
+}
+main #bookContainer #bookForm div input:focus{
+	outline: none;
+	border: 1px solid var(--primary);
+}
+main #bookContainer #bookForm div input{
+	font-size: var(--text-sm);
+	padding: .4rem .6rem;
+	transition: .1s linear;
+	border: 1px solid black;
+	border-radius: 5px;
+	transition: .1s linear;
+}
+main #bookContainer #bookForm #bookFormSubmit{
+	background-color: var(--primary);
+	border: none;
+	padding: .3rem .5rem;
+	border-radius: 5px;
+	font-weight: 600;
+	font-size: 12px;
+	color: white;
+	cursor: pointer;
+	transition: .1s linear;
+}
+main #bookContainer #bookForm #bookFormSubmit:hover{
+	background-color: var(--hover)
+}
+main #searchBookContainer h2{
+	font-size: var(--text-lg);
+	font-weight: 600;
+	color: var(--primary);
+	margin-bottom: .25rem;
+}
+main #searchBookContainer #searchBook{
+	display: flex;
+	flex-flow: column nowrap;
+	gap: .25rem;
+}
+main #searchBookContainer #searchBook label{
+	font-size: var(--text-sm);
+	font-weight: 600;
+}
+main #searchBookContainer #searchBook input:focus{
+	outline: none;
+	border: 1px solid var(--primary);
+}
+main #searchBookContainer #searchBook input{
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: .2rem .4rem;
+	font-size: var(--text-sm);
+	transition: .1s linear;
+}
+main #searchBookContainer #searchBook button{
+	border: none;
+	background-color: var(--primary);
+	color: white;
+	font-size: var(--text-sm);
+	font-weight: 600;
+	padding: .2rem .4rem;
+	margin-top: .5rem;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: .1s linear;
+}
+main #searchBookContainer #searchBook button:hover{
+	background-color: var(--hover);
+}
+main #incompleteBookListContainer{
+	margin-top: 1rem;
+}
+main #incompleteBookListContainer h2,
+main #completedBookListContainer h2{
+	font-size: var(--text-lg);
+	font-weight: 600;
+	color: var(--primary);
+}
+main #incompleteBookListContainer #incompleteBookList,
+main #completedBookListContainer #completeBookList{
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 1rem;
+	margin-top: .5rem;
+	max-height: 200px;
+	overflow: auto;
+}
+/*styling book card*/
+.bookCard{
+	display: flex;
+	flex-flow: column nowrap;
+	background-color: white;
+	box-shadow: var(--box-shadow-md);
+	border-radius: 5px;
+	padding: .5rem .7rem;
+}
+.bookCard .bookTitle{
+	font-size: var(--text-lg);
+	font-weight: 600;
+}
+.bookCard .bookAuthor,
+.bookCard .bookRelease{
+	font-size: var(--text-sm);
+	font-weight: 300;
+}
+.bookCard .buttonWrapper{
+	margin-top: .5rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5rem;
+}
+.bookCard button{
+	border: none;
+	padding: .3rem .5rem;
+	border-radius: 5px;
+	font-size: var(--text-xs);
+	font-weight: 600;
+	cursor: pointer;
+	transition: .1s linear;
+}
+.bookCard button.doneButton{
+	background-color: var(--primary);
+	color: white;
+}
+.bookCard button.doneButton:hover{
+	background-color: var(--hover);
+}
+.bookCard button.deleteButton{
+	background-color: #ef4444;
+	color: white;
+}
+.bookCard button.deleteButton:hover{
+	background-color: #b91c1c;
+}
+.bookCard button.editButton{
+	background-color: #f59e0b;
+	color: white;
+}
+.bookCard button.editButton:hover{
+	background-color: #b45309;
+}
+
+/*modal box edit*/
+main .modalBox{
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	inset-block: 0;
+	inset-inline: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 0 1rem;
+}
+main .modalBox #modalBoxContainer{
+	background-color: white;
+	padding: 1rem 2rem;
+	border-radius: 10px;
+	width: 100%;
+}
+main .modalBox #modalBoxContainer #editBookForm{
+	display: flex;
+	flex-flow: column nowrap;
+	gap: .5rem;
+}
+main .modalBox #modalBoxContainer #editBookForm div.inputWrapper{
+	display: flex;
+	flex-flow: column nowrap;
+	gap: .3rem;
+}
+main .modalBox #modalBoxContainer #editBookForm div label{
+	font-size: var(--text-sm);
+	font-weight: 600;
+}
+main .modalBox #modalBoxContainer #editBookForm div input:focus{
+	outline: none;
+	border: 1px solid var(--primary);
+}
+main .modalBox #modalBoxContainer #editBookForm div input{
+	font-size: var(--text-sm);
+	padding: .4rem .6rem;
+	transition: .1s linear;
+	border: 1px solid black;
+	border-radius: 5px;
+	transition: .1s linear;
+}
+main .modalBox #modalBoxContainer #editBookForm #editButtonSubmit{
+	background-color: var(--primary);
+	border: none;
+	padding: .3rem .5rem;
+	border-radius: 5px;
+	font-weight: 600;
+	font-size: 12px;
+	color: white;
+	cursor: pointer;
+	transition: .1s linear;
+}
+main .modalBox #modalBoxContainer #editBookForm #editButtonSubmit:hover{
+	background-color: var(--hover);
+}
+main .modalBox #modalBoxContainer #editBookForm #cancleButton{
+	background-color: #ef4444;
+	border: none;
+	padding: .3rem .5rem;
+	border-radius: 5px;
+	font-weight: 600;
+	font-size: 12px;
+	color: white;
+	cursor: pointer;
+	transition: .1s linear;
+}
+main .modalBox #modalBoxContainer #editBookForm #cancleButton:hover{
+	background-color: #b91c1c;
+}
+
+/*responsive*/
+/* tablet */
+@media screen (min-width: 767px) and (max-width: 1024px){
+	main #bookContainer,
+	main #searchBookContainer,
+	main #incompleteBookListContainer,
+	main #completedBookListContainer{
+		max-width: 60%;
+	}	
+}
+
+/*desktop*/
+@media screen and (min-width: 1025px){
+	main{
+		padding: 0 5%;
+		flex-flow: row nowrap;
+		gap: 4rem;
+	}
+}
